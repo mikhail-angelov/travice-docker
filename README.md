@@ -1,0 +1,1 @@
+# This is a demo project to verify ability of Travice CI and Docker [![build status](https://travis-ci.org/mikhail-angelov/travice-docker.svg?branch=master)](https://travis-ci.org/mikhail-angelov/travice-docker)
