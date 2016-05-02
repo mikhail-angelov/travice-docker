@@ -1,0 +1,19 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>travice</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.4/angular.min.js"></script>
+</head>
+<body ng-app="app" ng-controller="MainController">
+
+	<h1>Hi Travice</h1>
+	<div id='test'>{{test}}</div>
+
+	<script type="text/javascript">
+
+		angular.module('app',[]).controller("MainController", function($scope){
+		    $scope.test = 'yo';
+		});
+	</script>
+</body>
+</html>

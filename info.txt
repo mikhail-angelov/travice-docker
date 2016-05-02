@@ -1,0 +1,4 @@
+
+docker run -d -p 7000:7000 travice-docker /bin/sh -c "cd /opt/app; node index.js;"
+
+npm run protractor

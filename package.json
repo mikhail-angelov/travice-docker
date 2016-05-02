@@ -1,0 +1,19 @@
+{
+  "name": "travice-docker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "setup": "node node_modules/protractor/bin/webdriver-manager update",
+    "start": "node node_modules/protractor/bin/webdriver-manager start",
+    "update-webdriver": "webdriver-manager update",
+    "preprotractor": "npm run update-webdriver",
+    "protractor": "node node_modules/protractor/bin/protractor conf.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.13.4",
+    "protractor": "^3.3.0"
+  }
+}
