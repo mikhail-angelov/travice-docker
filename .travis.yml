@@ -19,6 +19,6 @@ before_script:
 script:
   - npm run protractor
 
-deploy:
+after_success:
   - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
   - docker push mangelov/travis-docker
