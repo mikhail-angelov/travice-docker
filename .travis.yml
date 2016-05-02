@@ -7,24 +7,21 @@ node_js:
 services:
   - docker
 
-env:  
-  - DOCKER_IMAGE_NAME=mangelov/travice-docker
-
 before_script:
-  - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
   - docker build -t $DOCKER_IMAGE_NAME .
   - docker run -d -p 7000:7000 $DOCKER_IMAGE_NAME /bin/sh -c "cd /opt/app; node index.js;"
   - docker ps -a
 
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
-  #- npm start > /dev/null &
-  #- npm run update-webdriver
   - sleep 1 # give server time to start
-
 
 script:
   - npm run protractor
 
 deploy:
+  - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
   - docker push $DOCKER_IMAGE_NAME
+
+env:  
+  - DOCKER_IMAGE_NAME=mangelov/travis-docker
