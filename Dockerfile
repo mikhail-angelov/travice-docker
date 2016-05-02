@@ -5,7 +5,7 @@ RUN mkdir -p /opt/app
 WORKDIR /opt/app
 COPY ./package.json /opt/app/package.json
 
-RUN npm install 
+RUN npm install --production
 
 COPY ./public /opt/app/public
 COPY ./index.js /opt/app/index.js
