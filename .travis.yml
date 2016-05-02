@@ -11,7 +11,7 @@ env:
   - DOCKER_IMAGE_NAME=mangelov/travice-docker
 
 before_script:
-  - docker login --email=$DOCKER_HUB_EMAIL --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
+  - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
   - docker build -t $DOCKER_IMAGE_NAME .
   - docker run -d -p 7000:7000 $DOCKER_IMAGE_NAME /bin/sh -c "cd /opt/app; node index.js;"
   - docker ps -a
