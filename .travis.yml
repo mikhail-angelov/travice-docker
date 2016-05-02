@@ -8,8 +8,8 @@ services:
   - docker
 
 before_script:
-  - docker build -t $DOCKER_IMAGE_NAME .
-  - docker run -d -p 7000:7000 $DOCKER_IMAGE_NAME /bin/sh -c "cd /opt/app; node index.js;"
+  - docker build -t mangelov/travis-docker .
+  - docker run -d -p 7000:7000 mangelov/travis-docker /bin/sh -c "cd /opt/app; node index.js;"
   - docker ps -a
 
   - export DISPLAY=:99.0
@@ -21,7 +21,4 @@ script:
 
 deploy:
   - docker login --username=$DOCKER_HUB_USERNAME --password=$DOCKER_HUB_PASSWORD
-  - docker push $DOCKER_IMAGE_NAME
-
-env:  
-  - DOCKER_IMAGE_NAME=mangelov/travis-docker
+  - docker push mangelov/travis-docker
